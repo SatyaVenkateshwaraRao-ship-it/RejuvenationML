@@ -1,7 +1,9 @@
 import os
 from flask import Flask, jsonify, request
+from flask_cors import CORS
 
 from exercise_recommendations import (
+    build_recommendations_json,
     find_best_exercises,
     get_all_exercises,
     get_phase_exercises,
@@ -13,6 +15,7 @@ from heart_rate_model import (
 )
 
 app = Flask(__name__)
+CORS(app)
 
 
 @app.route('/')
@@ -80,6 +83,12 @@ def heart_rate_alerts():
 
     alerts, zones = generate_hr_alerts(age)
     return jsonify({'age': age, 'zones': zones, 'alerts': alerts})
+
+
+@app.route('/exercise-data', methods=['GET'])
+def exercise_data():
+    payload = build_recommendations_json()
+    return jsonify(payload)
 
 
 if __name__ == '__main__':

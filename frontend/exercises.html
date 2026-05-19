@@ -131,7 +131,8 @@
     </div>
 
     <script>
-      let exerciseData = null;
+const BACKEND_URL = 'https://your-backend-url.onrender.com';
+    let exerciseData = null;
       let heartRateData = null;
       let totalCalories = 0;
       let userAge = 0;
@@ -269,10 +270,13 @@
         recommendationText.innerHTML = recommendation;
       }
 
-      // Load exercise data
+      // Load exercise data from live backend
       async function loadExerciseData() {
         try {
-          const response = await fetch('exercise_data.json');
+          const response = await fetch(`${BACKEND_URL}/exercise-data`);
+          if (!response.ok) {
+            throw new Error(`Backend error: ${response.status}`);
+          }
           exerciseData = await response.json();
           displayRecommendations();
           displayAllExercises();
@@ -284,7 +288,7 @@
           document.getElementById('heart-rate-section').style.display = 'block';
         } catch (error) {
           console.error('Error loading exercise data:', error);
-          document.getElementById('recommendations-grid').innerHTML = '<p style="color: red;">Failed to load exercise data</p>';
+          document.getElementById('recommendations-grid').innerHTML = '<p style="color: red;">Failed to load exercise data from backend. Please check BACKEND_URL.</p>';
         }
       }
 
