@@ -1,0 +1,952 @@
+{
+  "25": {
+    "zones": {
+      "max_hr": 195,
+      "threshold_70_percent": 136.5,
+      "threshold_80_percent": 156.0,
+      "threshold_90_percent": 175.5,
+      "zones": {
+        "zone_1_recovery": [
+          97.5,
+          117.0
+        ],
+        "zone_2_endurance": [
+          117.0,
+          136.5
+        ],
+        "zone_3_tempo": [
+          136.5,
+          156.0
+        ],
+        "zone_4_threshold": [
+          156.0,
+          175.5
+        ],
+        "zone_5_maximum": [
+          175.5,
+          195.0
+        ]
+      }
+    },
+    "exercise_alerts": [
+      {
+        "exercise": "Neck Stretch",
+        "phase": "Warm-Up",
+        "heart_rate": 70,
+        "duration": 3,
+        "calories": 10,
+        "alert_level": "safe",
+        "message": "\u2705 SAFE: Heart rate (70 bpm) is within safe range"
+      },
+      {
+        "exercise": "Shoulder Rolls",
+        "phase": "Warm-Up",
+        "heart_rate": 72,
+        "duration": 3,
+        "calories": 12,
+        "alert_level": "safe",
+        "message": "\u2705 SAFE: Heart rate (72 bpm) is within safe range"
+      },
+      {
+        "exercise": "Side Stretch",
+        "phase": "Warm-Up",
+        "heart_rate": 74,
+        "duration": 4,
+        "calories": 15,
+        "alert_level": "safe",
+        "message": "\u2705 SAFE: Heart rate (74 bpm) is within safe range"
+      },
+      {
+        "exercise": "Standing Forward Bend",
+        "phase": "Warm-Up",
+        "heart_rate": 78,
+        "duration": 5,
+        "calories": 20,
+        "alert_level": "safe",
+        "message": "\u2705 SAFE: Heart rate (78 bpm) is within safe range"
+      },
+      {
+        "exercise": "Cat-Cow Stretch",
+        "phase": "Main",
+        "heart_rate": 78,
+        "duration": 5,
+        "calories": 18,
+        "alert_level": "safe",
+        "message": "\u2705 SAFE: Heart rate (78 bpm) is within safe range"
+      },
+      {
+        "exercise": "Seated Spinal Twist",
+        "phase": "Main",
+        "heart_rate": 76,
+        "duration": 5,
+        "calories": 16,
+        "alert_level": "safe",
+        "message": "\u2705 SAFE: Heart rate (76 bpm) is within safe range"
+      },
+      {
+        "exercise": "Butterfly Stretch",
+        "phase": "Main",
+        "heart_rate": 78,
+        "duration": 6,
+        "calories": 22,
+        "alert_level": "safe",
+        "message": "\u2705 SAFE: Heart rate (78 bpm) is within safe range"
+      },
+      {
+        "exercise": "Hamstring Stretch",
+        "phase": "Main",
+        "heart_rate": 82,
+        "duration": 7,
+        "calories": 26,
+        "alert_level": "safe",
+        "message": "\u2705 SAFE: Heart rate (82 bpm) is within safe range"
+      },
+      {
+        "exercise": "Quadriceps Stretch",
+        "phase": "Main",
+        "heart_rate": 80,
+        "duration": 6,
+        "calories": 24,
+        "alert_level": "safe",
+        "message": "\u2705 SAFE: Heart rate (80 bpm) is within safe range"
+      },
+      {
+        "exercise": "Hip Flexor Stretch",
+        "phase": "Main",
+        "heart_rate": 82,
+        "duration": 7,
+        "calories": 28,
+        "alert_level": "safe",
+        "message": "\u2705 SAFE: Heart rate (82 bpm) is within safe range"
+      },
+      {
+        "exercise": "Downward Dog",
+        "phase": "Main",
+        "heart_rate": 85,
+        "duration": 8,
+        "calories": 35,
+        "alert_level": "safe",
+        "message": "\u2705 SAFE: Heart rate (85 bpm) is within safe range"
+      },
+      {
+        "exercise": "Cobra Stretch",
+        "phase": "Main",
+        "heart_rate": 78,
+        "duration": 6,
+        "calories": 22,
+        "alert_level": "safe",
+        "message": "\u2705 SAFE: Heart rate (78 bpm) is within safe range"
+      },
+      {
+        "exercise": "Chest Opener Stretch",
+        "phase": "Main",
+        "heart_rate": 78,
+        "duration": 6,
+        "calories": 22,
+        "alert_level": "safe",
+        "message": "\u2705 SAFE: Heart rate (78 bpm) is within safe range"
+      },
+      {
+        "exercise": "Child?s Pose",
+        "phase": "Cool-Down",
+        "heart_rate": 72,
+        "duration": 5,
+        "calories": 15,
+        "alert_level": "safe",
+        "message": "\u2705 SAFE: Heart rate (72 bpm) is within safe range"
+      },
+      {
+        "exercise": "Full Body Stretch Routine",
+        "phase": "Cool-Down",
+        "heart_rate": 82,
+        "duration": 10,
+        "calories": 40,
+        "alert_level": "safe",
+        "message": "\u2705 SAFE: Heart rate (82 bpm) is within safe range"
+      },
+      {
+        "exercise": "Gentle Yoga Flow",
+        "phase": "Cool-Down",
+        "heart_rate": 88,
+        "duration": 15,
+        "calories": 65,
+        "alert_level": "safe",
+        "message": "\u2705 SAFE: Heart rate (88 bpm) is within safe range"
+      },
+      {
+        "exercise": "Tai Chi (Flexibility Focus)",
+        "phase": "Cool-Down",
+        "heart_rate": 88,
+        "duration": 20,
+        "calories": 80,
+        "alert_level": "safe",
+        "message": "\u2705 SAFE: Heart rate (88 bpm) is within safe range"
+      }
+    ],
+    "model_coefficients": {
+      "duration": -2.1311390996579034,
+      "calories_burnt": 0.7365795049657314,
+      "intercept": 73.68679198380661
+    }
+  },
+  "30": {
+    "zones": {
+      "max_hr": 190,
+      "threshold_70_percent": 133.0,
+      "threshold_80_percent": 152.0,
+      "threshold_90_percent": 171.0,
+      "zones": {
+        "zone_1_recovery": [
+          95.0,
+          114.0
+        ],
+        "zone_2_endurance": [
+          114.0,
+          133.0
+        ],
+        "zone_3_tempo": [
+          133.0,
+          152.0
+        ],
+        "zone_4_threshold": [
+          152.0,
+          171.0
+        ],
+        "zone_5_maximum": [
+          171.0,
+          190.0
+        ]
+      }
+    },
+    "exercise_alerts": [
+      {
+        "exercise": "Neck Stretch",
+        "phase": "Warm-Up",
+        "heart_rate": 70,
+        "duration": 3,
+        "calories": 10,
+        "alert_level": "safe",
+        "message": "\u2705 SAFE: Heart rate (70 bpm) is within safe range"
+      },
+      {
+        "exercise": "Shoulder Rolls",
+        "phase": "Warm-Up",
+        "heart_rate": 72,
+        "duration": 3,
+        "calories": 12,
+        "alert_level": "safe",
+        "message": "\u2705 SAFE: Heart rate (72 bpm) is within safe range"
+      },
+      {
+        "exercise": "Side Stretch",
+        "phase": "Warm-Up",
+        "heart_rate": 74,
+        "duration": 4,
+        "calories": 15,
+        "alert_level": "safe",
+        "message": "\u2705 SAFE: Heart rate (74 bpm) is within safe range"
+      },
+      {
+        "exercise": "Standing Forward Bend",
+        "phase": "Warm-Up",
+        "heart_rate": 78,
+        "duration": 5,
+        "calories": 20,
+        "alert_level": "safe",
+        "message": "\u2705 SAFE: Heart rate (78 bpm) is within safe range"
+      },
+      {
+        "exercise": "Cat-Cow Stretch",
+        "phase": "Main",
+        "heart_rate": 78,
+        "duration": 5,
+        "calories": 18,
+        "alert_level": "safe",
+        "message": "\u2705 SAFE: Heart rate (78 bpm) is within safe range"
+      },
+      {
+        "exercise": "Seated Spinal Twist",
+        "phase": "Main",
+        "heart_rate": 76,
+        "duration": 5,
+        "calories": 16,
+        "alert_level": "safe",
+        "message": "\u2705 SAFE: Heart rate (76 bpm) is within safe range"
+      },
+      {
+        "exercise": "Butterfly Stretch",
+        "phase": "Main",
+        "heart_rate": 78,
+        "duration": 6,
+        "calories": 22,
+        "alert_level": "safe",
+        "message": "\u2705 SAFE: Heart rate (78 bpm) is within safe range"
+      },
+      {
+        "exercise": "Hamstring Stretch",
+        "phase": "Main",
+        "heart_rate": 82,
+        "duration": 7,
+        "calories": 26,
+        "alert_level": "safe",
+        "message": "\u2705 SAFE: Heart rate (82 bpm) is within safe range"
+      },
+      {
+        "exercise": "Quadriceps Stretch",
+        "phase": "Main",
+        "heart_rate": 80,
+        "duration": 6,
+        "calories": 24,
+        "alert_level": "safe",
+        "message": "\u2705 SAFE: Heart rate (80 bpm) is within safe range"
+      },
+      {
+        "exercise": "Hip Flexor Stretch",
+        "phase": "Main",
+        "heart_rate": 82,
+        "duration": 7,
+        "calories": 28,
+        "alert_level": "safe",
+        "message": "\u2705 SAFE: Heart rate (82 bpm) is within safe range"
+      },
+      {
+        "exercise": "Downward Dog",
+        "phase": "Main",
+        "heart_rate": 85,
+        "duration": 8,
+        "calories": 35,
+        "alert_level": "safe",
+        "message": "\u2705 SAFE: Heart rate (85 bpm) is within safe range"
+      },
+      {
+        "exercise": "Cobra Stretch",
+        "phase": "Main",
+        "heart_rate": 78,
+        "duration": 6,
+        "calories": 22,
+        "alert_level": "safe",
+        "message": "\u2705 SAFE: Heart rate (78 bpm) is within safe range"
+      },
+      {
+        "exercise": "Chest Opener Stretch",
+        "phase": "Main",
+        "heart_rate": 78,
+        "duration": 6,
+        "calories": 22,
+        "alert_level": "safe",
+        "message": "\u2705 SAFE: Heart rate (78 bpm) is within safe range"
+      },
+      {
+        "exercise": "Child?s Pose",
+        "phase": "Cool-Down",
+        "heart_rate": 72,
+        "duration": 5,
+        "calories": 15,
+        "alert_level": "safe",
+        "message": "\u2705 SAFE: Heart rate (72 bpm) is within safe range"
+      },
+      {
+        "exercise": "Full Body Stretch Routine",
+        "phase": "Cool-Down",
+        "heart_rate": 82,
+        "duration": 10,
+        "calories": 40,
+        "alert_level": "safe",
+        "message": "\u2705 SAFE: Heart rate (82 bpm) is within safe range"
+      },
+      {
+        "exercise": "Gentle Yoga Flow",
+        "phase": "Cool-Down",
+        "heart_rate": 88,
+        "duration": 15,
+        "calories": 65,
+        "alert_level": "safe",
+        "message": "\u2705 SAFE: Heart rate (88 bpm) is within safe range"
+      },
+      {
+        "exercise": "Tai Chi (Flexibility Focus)",
+        "phase": "Cool-Down",
+        "heart_rate": 88,
+        "duration": 20,
+        "calories": 80,
+        "alert_level": "safe",
+        "message": "\u2705 SAFE: Heart rate (88 bpm) is within safe range"
+      }
+    ],
+    "model_coefficients": {
+      "duration": -2.1311390996579034,
+      "calories_burnt": 0.7365795049657314,
+      "intercept": 73.68679198380661
+    }
+  },
+  "40": {
+    "zones": {
+      "max_hr": 180,
+      "threshold_70_percent": 125.99999999999999,
+      "threshold_80_percent": 144.0,
+      "threshold_90_percent": 162.0,
+      "zones": {
+        "zone_1_recovery": [
+          90.0,
+          108.0
+        ],
+        "zone_2_endurance": [
+          108.0,
+          125.99999999999999
+        ],
+        "zone_3_tempo": [
+          125.99999999999999,
+          144.0
+        ],
+        "zone_4_threshold": [
+          144.0,
+          162.0
+        ],
+        "zone_5_maximum": [
+          162.0,
+          180.0
+        ]
+      }
+    },
+    "exercise_alerts": [
+      {
+        "exercise": "Neck Stretch",
+        "phase": "Warm-Up",
+        "heart_rate": 70,
+        "duration": 3,
+        "calories": 10,
+        "alert_level": "safe",
+        "message": "\u2705 SAFE: Heart rate (70 bpm) is within safe range"
+      },
+      {
+        "exercise": "Shoulder Rolls",
+        "phase": "Warm-Up",
+        "heart_rate": 72,
+        "duration": 3,
+        "calories": 12,
+        "alert_level": "safe",
+        "message": "\u2705 SAFE: Heart rate (72 bpm) is within safe range"
+      },
+      {
+        "exercise": "Side Stretch",
+        "phase": "Warm-Up",
+        "heart_rate": 74,
+        "duration": 4,
+        "calories": 15,
+        "alert_level": "safe",
+        "message": "\u2705 SAFE: Heart rate (74 bpm) is within safe range"
+      },
+      {
+        "exercise": "Standing Forward Bend",
+        "phase": "Warm-Up",
+        "heart_rate": 78,
+        "duration": 5,
+        "calories": 20,
+        "alert_level": "safe",
+        "message": "\u2705 SAFE: Heart rate (78 bpm) is within safe range"
+      },
+      {
+        "exercise": "Cat-Cow Stretch",
+        "phase": "Main",
+        "heart_rate": 78,
+        "duration": 5,
+        "calories": 18,
+        "alert_level": "safe",
+        "message": "\u2705 SAFE: Heart rate (78 bpm) is within safe range"
+      },
+      {
+        "exercise": "Seated Spinal Twist",
+        "phase": "Main",
+        "heart_rate": 76,
+        "duration": 5,
+        "calories": 16,
+        "alert_level": "safe",
+        "message": "\u2705 SAFE: Heart rate (76 bpm) is within safe range"
+      },
+      {
+        "exercise": "Butterfly Stretch",
+        "phase": "Main",
+        "heart_rate": 78,
+        "duration": 6,
+        "calories": 22,
+        "alert_level": "safe",
+        "message": "\u2705 SAFE: Heart rate (78 bpm) is within safe range"
+      },
+      {
+        "exercise": "Hamstring Stretch",
+        "phase": "Main",
+        "heart_rate": 82,
+        "duration": 7,
+        "calories": 26,
+        "alert_level": "safe",
+        "message": "\u2705 SAFE: Heart rate (82 bpm) is within safe range"
+      },
+      {
+        "exercise": "Quadriceps Stretch",
+        "phase": "Main",
+        "heart_rate": 80,
+        "duration": 6,
+        "calories": 24,
+        "alert_level": "safe",
+        "message": "\u2705 SAFE: Heart rate (80 bpm) is within safe range"
+      },
+      {
+        "exercise": "Hip Flexor Stretch",
+        "phase": "Main",
+        "heart_rate": 82,
+        "duration": 7,
+        "calories": 28,
+        "alert_level": "safe",
+        "message": "\u2705 SAFE: Heart rate (82 bpm) is within safe range"
+      },
+      {
+        "exercise": "Downward Dog",
+        "phase": "Main",
+        "heart_rate": 85,
+        "duration": 8,
+        "calories": 35,
+        "alert_level": "safe",
+        "message": "\u2705 SAFE: Heart rate (85 bpm) is within safe range"
+      },
+      {
+        "exercise": "Cobra Stretch",
+        "phase": "Main",
+        "heart_rate": 78,
+        "duration": 6,
+        "calories": 22,
+        "alert_level": "safe",
+        "message": "\u2705 SAFE: Heart rate (78 bpm) is within safe range"
+      },
+      {
+        "exercise": "Chest Opener Stretch",
+        "phase": "Main",
+        "heart_rate": 78,
+        "duration": 6,
+        "calories": 22,
+        "alert_level": "safe",
+        "message": "\u2705 SAFE: Heart rate (78 bpm) is within safe range"
+      },
+      {
+        "exercise": "Child?s Pose",
+        "phase": "Cool-Down",
+        "heart_rate": 72,
+        "duration": 5,
+        "calories": 15,
+        "alert_level": "safe",
+        "message": "\u2705 SAFE: Heart rate (72 bpm) is within safe range"
+      },
+      {
+        "exercise": "Full Body Stretch Routine",
+        "phase": "Cool-Down",
+        "heart_rate": 82,
+        "duration": 10,
+        "calories": 40,
+        "alert_level": "safe",
+        "message": "\u2705 SAFE: Heart rate (82 bpm) is within safe range"
+      },
+      {
+        "exercise": "Gentle Yoga Flow",
+        "phase": "Cool-Down",
+        "heart_rate": 88,
+        "duration": 15,
+        "calories": 65,
+        "alert_level": "safe",
+        "message": "\u2705 SAFE: Heart rate (88 bpm) is within safe range"
+      },
+      {
+        "exercise": "Tai Chi (Flexibility Focus)",
+        "phase": "Cool-Down",
+        "heart_rate": 88,
+        "duration": 20,
+        "calories": 80,
+        "alert_level": "safe",
+        "message": "\u2705 SAFE: Heart rate (88 bpm) is within safe range"
+      }
+    ],
+    "model_coefficients": {
+      "duration": -2.1311390996579034,
+      "calories_burnt": 0.7365795049657314,
+      "intercept": 73.68679198380661
+    }
+  },
+  "50": {
+    "zones": {
+      "max_hr": 170,
+      "threshold_70_percent": 118.99999999999999,
+      "threshold_80_percent": 136.0,
+      "threshold_90_percent": 153.0,
+      "zones": {
+        "zone_1_recovery": [
+          85.0,
+          102.0
+        ],
+        "zone_2_endurance": [
+          102.0,
+          118.99999999999999
+        ],
+        "zone_3_tempo": [
+          118.99999999999999,
+          136.0
+        ],
+        "zone_4_threshold": [
+          136.0,
+          153.0
+        ],
+        "zone_5_maximum": [
+          153.0,
+          170.0
+        ]
+      }
+    },
+    "exercise_alerts": [
+      {
+        "exercise": "Neck Stretch",
+        "phase": "Warm-Up",
+        "heart_rate": 70,
+        "duration": 3,
+        "calories": 10,
+        "alert_level": "safe",
+        "message": "\u2705 SAFE: Heart rate (70 bpm) is within safe range"
+      },
+      {
+        "exercise": "Shoulder Rolls",
+        "phase": "Warm-Up",
+        "heart_rate": 72,
+        "duration": 3,
+        "calories": 12,
+        "alert_level": "safe",
+        "message": "\u2705 SAFE: Heart rate (72 bpm) is within safe range"
+      },
+      {
+        "exercise": "Side Stretch",
+        "phase": "Warm-Up",
+        "heart_rate": 74,
+        "duration": 4,
+        "calories": 15,
+        "alert_level": "safe",
+        "message": "\u2705 SAFE: Heart rate (74 bpm) is within safe range"
+      },
+      {
+        "exercise": "Standing Forward Bend",
+        "phase": "Warm-Up",
+        "heart_rate": 78,
+        "duration": 5,
+        "calories": 20,
+        "alert_level": "safe",
+        "message": "\u2705 SAFE: Heart rate (78 bpm) is within safe range"
+      },
+      {
+        "exercise": "Cat-Cow Stretch",
+        "phase": "Main",
+        "heart_rate": 78,
+        "duration": 5,
+        "calories": 18,
+        "alert_level": "safe",
+        "message": "\u2705 SAFE: Heart rate (78 bpm) is within safe range"
+      },
+      {
+        "exercise": "Seated Spinal Twist",
+        "phase": "Main",
+        "heart_rate": 76,
+        "duration": 5,
+        "calories": 16,
+        "alert_level": "safe",
+        "message": "\u2705 SAFE: Heart rate (76 bpm) is within safe range"
+      },
+      {
+        "exercise": "Butterfly Stretch",
+        "phase": "Main",
+        "heart_rate": 78,
+        "duration": 6,
+        "calories": 22,
+        "alert_level": "safe",
+        "message": "\u2705 SAFE: Heart rate (78 bpm) is within safe range"
+      },
+      {
+        "exercise": "Hamstring Stretch",
+        "phase": "Main",
+        "heart_rate": 82,
+        "duration": 7,
+        "calories": 26,
+        "alert_level": "safe",
+        "message": "\u2705 SAFE: Heart rate (82 bpm) is within safe range"
+      },
+      {
+        "exercise": "Quadriceps Stretch",
+        "phase": "Main",
+        "heart_rate": 80,
+        "duration": 6,
+        "calories": 24,
+        "alert_level": "safe",
+        "message": "\u2705 SAFE: Heart rate (80 bpm) is within safe range"
+      },
+      {
+        "exercise": "Hip Flexor Stretch",
+        "phase": "Main",
+        "heart_rate": 82,
+        "duration": 7,
+        "calories": 28,
+        "alert_level": "safe",
+        "message": "\u2705 SAFE: Heart rate (82 bpm) is within safe range"
+      },
+      {
+        "exercise": "Downward Dog",
+        "phase": "Main",
+        "heart_rate": 85,
+        "duration": 8,
+        "calories": 35,
+        "alert_level": "safe",
+        "message": "\u2705 SAFE: Heart rate (85 bpm) is within safe range"
+      },
+      {
+        "exercise": "Cobra Stretch",
+        "phase": "Main",
+        "heart_rate": 78,
+        "duration": 6,
+        "calories": 22,
+        "alert_level": "safe",
+        "message": "\u2705 SAFE: Heart rate (78 bpm) is within safe range"
+      },
+      {
+        "exercise": "Chest Opener Stretch",
+        "phase": "Main",
+        "heart_rate": 78,
+        "duration": 6,
+        "calories": 22,
+        "alert_level": "safe",
+        "message": "\u2705 SAFE: Heart rate (78 bpm) is within safe range"
+      },
+      {
+        "exercise": "Child?s Pose",
+        "phase": "Cool-Down",
+        "heart_rate": 72,
+        "duration": 5,
+        "calories": 15,
+        "alert_level": "safe",
+        "message": "\u2705 SAFE: Heart rate (72 bpm) is within safe range"
+      },
+      {
+        "exercise": "Full Body Stretch Routine",
+        "phase": "Cool-Down",
+        "heart_rate": 82,
+        "duration": 10,
+        "calories": 40,
+        "alert_level": "safe",
+        "message": "\u2705 SAFE: Heart rate (82 bpm) is within safe range"
+      },
+      {
+        "exercise": "Gentle Yoga Flow",
+        "phase": "Cool-Down",
+        "heart_rate": 88,
+        "duration": 15,
+        "calories": 65,
+        "alert_level": "safe",
+        "message": "\u2705 SAFE: Heart rate (88 bpm) is within safe range"
+      },
+      {
+        "exercise": "Tai Chi (Flexibility Focus)",
+        "phase": "Cool-Down",
+        "heart_rate": 88,
+        "duration": 20,
+        "calories": 80,
+        "alert_level": "safe",
+        "message": "\u2705 SAFE: Heart rate (88 bpm) is within safe range"
+      }
+    ],
+    "model_coefficients": {
+      "duration": -2.1311390996579034,
+      "calories_burnt": 0.7365795049657314,
+      "intercept": 73.68679198380661
+    }
+  },
+  "60": {
+    "zones": {
+      "max_hr": 160,
+      "threshold_70_percent": 112.0,
+      "threshold_80_percent": 128.0,
+      "threshold_90_percent": 144.0,
+      "zones": {
+        "zone_1_recovery": [
+          80.0,
+          96.0
+        ],
+        "zone_2_endurance": [
+          96.0,
+          112.0
+        ],
+        "zone_3_tempo": [
+          112.0,
+          128.0
+        ],
+        "zone_4_threshold": [
+          128.0,
+          144.0
+        ],
+        "zone_5_maximum": [
+          144.0,
+          160.0
+        ]
+      }
+    },
+    "exercise_alerts": [
+      {
+        "exercise": "Neck Stretch",
+        "phase": "Warm-Up",
+        "heart_rate": 70,
+        "duration": 3,
+        "calories": 10,
+        "alert_level": "safe",
+        "message": "\u2705 SAFE: Heart rate (70 bpm) is within safe range"
+      },
+      {
+        "exercise": "Shoulder Rolls",
+        "phase": "Warm-Up",
+        "heart_rate": 72,
+        "duration": 3,
+        "calories": 12,
+        "alert_level": "safe",
+        "message": "\u2705 SAFE: Heart rate (72 bpm) is within safe range"
+      },
+      {
+        "exercise": "Side Stretch",
+        "phase": "Warm-Up",
+        "heart_rate": 74,
+        "duration": 4,
+        "calories": 15,
+        "alert_level": "safe",
+        "message": "\u2705 SAFE: Heart rate (74 bpm) is within safe range"
+      },
+      {
+        "exercise": "Standing Forward Bend",
+        "phase": "Warm-Up",
+        "heart_rate": 78,
+        "duration": 5,
+        "calories": 20,
+        "alert_level": "safe",
+        "message": "\u2705 SAFE: Heart rate (78 bpm) is within safe range"
+      },
+      {
+        "exercise": "Cat-Cow Stretch",
+        "phase": "Main",
+        "heart_rate": 78,
+        "duration": 5,
+        "calories": 18,
+        "alert_level": "safe",
+        "message": "\u2705 SAFE: Heart rate (78 bpm) is within safe range"
+      },
+      {
+        "exercise": "Seated Spinal Twist",
+        "phase": "Main",
+        "heart_rate": 76,
+        "duration": 5,
+        "calories": 16,
+        "alert_level": "safe",
+        "message": "\u2705 SAFE: Heart rate (76 bpm) is within safe range"
+      },
+      {
+        "exercise": "Butterfly Stretch",
+        "phase": "Main",
+        "heart_rate": 78,
+        "duration": 6,
+        "calories": 22,
+        "alert_level": "safe",
+        "message": "\u2705 SAFE: Heart rate (78 bpm) is within safe range"
+      },
+      {
+        "exercise": "Hamstring Stretch",
+        "phase": "Main",
+        "heart_rate": 82,
+        "duration": 7,
+        "calories": 26,
+        "alert_level": "safe",
+        "message": "\u2705 SAFE: Heart rate (82 bpm) is within safe range"
+      },
+      {
+        "exercise": "Quadriceps Stretch",
+        "phase": "Main",
+        "heart_rate": 80,
+        "duration": 6,
+        "calories": 24,
+        "alert_level": "safe",
+        "message": "\u2705 SAFE: Heart rate (80 bpm) is within safe range"
+      },
+      {
+        "exercise": "Hip Flexor Stretch",
+        "phase": "Main",
+        "heart_rate": 82,
+        "duration": 7,
+        "calories": 28,
+        "alert_level": "safe",
+        "message": "\u2705 SAFE: Heart rate (82 bpm) is within safe range"
+      },
+      {
+        "exercise": "Downward Dog",
+        "phase": "Main",
+        "heart_rate": 85,
+        "duration": 8,
+        "calories": 35,
+        "alert_level": "safe",
+        "message": "\u2705 SAFE: Heart rate (85 bpm) is within safe range"
+      },
+      {
+        "exercise": "Cobra Stretch",
+        "phase": "Main",
+        "heart_rate": 78,
+        "duration": 6,
+        "calories": 22,
+        "alert_level": "safe",
+        "message": "\u2705 SAFE: Heart rate (78 bpm) is within safe range"
+      },
+      {
+        "exercise": "Chest Opener Stretch",
+        "phase": "Main",
+        "heart_rate": 78,
+        "duration": 6,
+        "calories": 22,
+        "alert_level": "safe",
+        "message": "\u2705 SAFE: Heart rate (78 bpm) is within safe range"
+      },
+      {
+        "exercise": "Child?s Pose",
+        "phase": "Cool-Down",
+        "heart_rate": 72,
+        "duration": 5,
+        "calories": 15,
+        "alert_level": "safe",
+        "message": "\u2705 SAFE: Heart rate (72 bpm) is within safe range"
+      },
+      {
+        "exercise": "Full Body Stretch Routine",
+        "phase": "Cool-Down",
+        "heart_rate": 82,
+        "duration": 10,
+        "calories": 40,
+        "alert_level": "safe",
+        "message": "\u2705 SAFE: Heart rate (82 bpm) is within safe range"
+      },
+      {
+        "exercise": "Gentle Yoga Flow",
+        "phase": "Cool-Down",
+        "heart_rate": 88,
+        "duration": 15,
+        "calories": 65,
+        "alert_level": "safe",
+        "message": "\u2705 SAFE: Heart rate (88 bpm) is within safe range"
+      },
+      {
+        "exercise": "Tai Chi (Flexibility Focus)",
+        "phase": "Cool-Down",
+        "heart_rate": 88,
+        "duration": 20,
+        "calories": 80,
+        "alert_level": "safe",
+        "message": "\u2705 SAFE: Heart rate (88 bpm) is within safe range"
+      }
+    ],
+    "model_coefficients": {
+      "duration": -2.1311390996579034,
+      "calories_burnt": 0.7365795049657314,
+      "intercept": 73.68679198380661
+    }
+  }
+}

@@ -1,0 +1,304 @@
+{
+  "recommendations": {
+    "1500": [
+      {
+        "workout": "Tai Chi (Flexibility Focus)",
+        "phase": "Cool-Down",
+        "duration": 20,
+        "heartrate": 88,
+        "calories_burnt": 80,
+        "efficiency": 4.0
+      },
+      {
+        "workout": "Gentle Yoga Flow",
+        "phase": "Cool-Down",
+        "duration": 15,
+        "heartrate": 88,
+        "calories_burnt": 65,
+        "efficiency": 4.333333333333333
+      },
+      {
+        "workout": "Full Body Stretch Routine",
+        "phase": "Cool-Down",
+        "duration": 10,
+        "heartrate": 82,
+        "calories_burnt": 40,
+        "efficiency": 4.0
+      },
+      {
+        "workout": "Downward Dog",
+        "phase": "Main",
+        "duration": 8,
+        "heartrate": 85,
+        "calories_burnt": 35,
+        "efficiency": 4.375
+      },
+      {
+        "workout": "Hip Flexor Stretch",
+        "phase": "Main",
+        "duration": 7,
+        "heartrate": 82,
+        "calories_burnt": 28,
+        "efficiency": 4.0
+      }
+    ],
+    "2000": [
+      {
+        "workout": "Tai Chi (Flexibility Focus)",
+        "phase": "Cool-Down",
+        "duration": 20,
+        "heartrate": 88,
+        "calories_burnt": 80,
+        "efficiency": 4.0
+      },
+      {
+        "workout": "Gentle Yoga Flow",
+        "phase": "Cool-Down",
+        "duration": 15,
+        "heartrate": 88,
+        "calories_burnt": 65,
+        "efficiency": 4.333333333333333
+      },
+      {
+        "workout": "Full Body Stretch Routine",
+        "phase": "Cool-Down",
+        "duration": 10,
+        "heartrate": 82,
+        "calories_burnt": 40,
+        "efficiency": 4.0
+      },
+      {
+        "workout": "Downward Dog",
+        "phase": "Main",
+        "duration": 8,
+        "heartrate": 85,
+        "calories_burnt": 35,
+        "efficiency": 4.375
+      },
+      {
+        "workout": "Hip Flexor Stretch",
+        "phase": "Main",
+        "duration": 7,
+        "heartrate": 82,
+        "calories_burnt": 28,
+        "efficiency": 4.0
+      }
+    ],
+    "2500": [
+      {
+        "workout": "Tai Chi (Flexibility Focus)",
+        "phase": "Cool-Down",
+        "duration": 20,
+        "heartrate": 88,
+        "calories_burnt": 80,
+        "efficiency": 4.0
+      },
+      {
+        "workout": "Gentle Yoga Flow",
+        "phase": "Cool-Down",
+        "duration": 15,
+        "heartrate": 88,
+        "calories_burnt": 65,
+        "efficiency": 4.333333333333333
+      },
+      {
+        "workout": "Full Body Stretch Routine",
+        "phase": "Cool-Down",
+        "duration": 10,
+        "heartrate": 82,
+        "calories_burnt": 40,
+        "efficiency": 4.0
+      },
+      {
+        "workout": "Downward Dog",
+        "phase": "Main",
+        "duration": 8,
+        "heartrate": 85,
+        "calories_burnt": 35,
+        "efficiency": 4.375
+      },
+      {
+        "workout": "Hip Flexor Stretch",
+        "phase": "Main",
+        "duration": 7,
+        "heartrate": 82,
+        "calories_burnt": 28,
+        "efficiency": 4.0
+      }
+    ],
+    "3000": [
+      {
+        "workout": "Tai Chi (Flexibility Focus)",
+        "phase": "Cool-Down",
+        "duration": 20,
+        "heartrate": 88,
+        "calories_burnt": 80,
+        "efficiency": 4.0
+      },
+      {
+        "workout": "Gentle Yoga Flow",
+        "phase": "Cool-Down",
+        "duration": 15,
+        "heartrate": 88,
+        "calories_burnt": 65,
+        "efficiency": 4.333333333333333
+      },
+      {
+        "workout": "Full Body Stretch Routine",
+        "phase": "Cool-Down",
+        "duration": 10,
+        "heartrate": 82,
+        "calories_burnt": 40,
+        "efficiency": 4.0
+      },
+      {
+        "workout": "Downward Dog",
+        "phase": "Main",
+        "duration": 8,
+        "heartrate": 85,
+        "calories_burnt": 35,
+        "efficiency": 4.375
+      },
+      {
+        "workout": "Hip Flexor Stretch",
+        "phase": "Main",
+        "duration": 7,
+        "heartrate": 82,
+        "calories_burnt": 28,
+        "efficiency": 4.0
+      }
+    ]
+  },
+  "all_exercises": {
+    "Warm-Up": [
+      {
+        "workout": "Neck Stretch",
+        "duration": 3,
+        "heartrate": 70,
+        "calories_burnt": 10,
+        "efficiency": 3.3333333333333335
+      },
+      {
+        "workout": "Shoulder Rolls",
+        "duration": 3,
+        "heartrate": 72,
+        "calories_burnt": 12,
+        "efficiency": 4.0
+      },
+      {
+        "workout": "Side Stretch",
+        "duration": 4,
+        "heartrate": 74,
+        "calories_burnt": 15,
+        "efficiency": 3.75
+      },
+      {
+        "workout": "Standing Forward Bend",
+        "duration": 5,
+        "heartrate": 78,
+        "calories_burnt": 20,
+        "efficiency": 4.0
+      }
+    ],
+    "Main": [
+      {
+        "workout": "Cat-Cow Stretch",
+        "duration": 5,
+        "heartrate": 78,
+        "calories_burnt": 18,
+        "efficiency": 3.6
+      },
+      {
+        "workout": "Seated Spinal Twist",
+        "duration": 5,
+        "heartrate": 76,
+        "calories_burnt": 16,
+        "efficiency": 3.2
+      },
+      {
+        "workout": "Butterfly Stretch",
+        "duration": 6,
+        "heartrate": 78,
+        "calories_burnt": 22,
+        "efficiency": 3.6666666666666665
+      },
+      {
+        "workout": "Hamstring Stretch",
+        "duration": 7,
+        "heartrate": 82,
+        "calories_burnt": 26,
+        "efficiency": 3.7142857142857144
+      },
+      {
+        "workout": "Quadriceps Stretch",
+        "duration": 6,
+        "heartrate": 80,
+        "calories_burnt": 24,
+        "efficiency": 4.0
+      },
+      {
+        "workout": "Hip Flexor Stretch",
+        "duration": 7,
+        "heartrate": 82,
+        "calories_burnt": 28,
+        "efficiency": 4.0
+      },
+      {
+        "workout": "Downward Dog",
+        "duration": 8,
+        "heartrate": 85,
+        "calories_burnt": 35,
+        "efficiency": 4.375
+      },
+      {
+        "workout": "Cobra Stretch",
+        "duration": 6,
+        "heartrate": 78,
+        "calories_burnt": 22,
+        "efficiency": 3.6666666666666665
+      },
+      {
+        "workout": "Chest Opener Stretch",
+        "duration": 6,
+        "heartrate": 78,
+        "calories_burnt": 22,
+        "efficiency": 3.6666666666666665
+      }
+    ],
+    "Cool-Down": [
+      {
+        "workout": "Child?s Pose",
+        "duration": 5,
+        "heartrate": 72,
+        "calories_burnt": 15,
+        "efficiency": 3.0
+      },
+      {
+        "workout": "Full Body Stretch Routine",
+        "duration": 10,
+        "heartrate": 82,
+        "calories_burnt": 40,
+        "efficiency": 4.0
+      },
+      {
+        "workout": "Gentle Yoga Flow",
+        "duration": 15,
+        "heartrate": 88,
+        "calories_burnt": 65,
+        "efficiency": 4.333333333333333
+      },
+      {
+        "workout": "Tai Chi (Flexibility Focus)",
+        "duration": 20,
+        "heartrate": 88,
+        "calories_burnt": 80,
+        "efficiency": 4.0
+      }
+    ]
+  },
+  "feature_importance": {
+    "duration": 0.5675870255234363,
+    "heartrate": 0.4120536118625518,
+    "phase": 0.020359362614011917
+  }
+}

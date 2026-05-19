@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FinalVersion</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js"></script>
+  </head>
+  <body>
+    <h1 id="welcome">Welcome Back</h1>
+    </br></br>
+
+    <div class="unit-selector">
+      <label for="units">Choose Units:</label>
+      <select id="units">
+        <option value="metric">Metric</option>
+        <option value="imperial">Imperial</option>
+      </select>
+    </div>
+    </br></br>
+
+    <p id="details">Enter Details</p>
+    <div id="form">
+      <label for="username">Username</label></br>
+      <input type="text" id="username" placeholder="eg: Satya" />
+     </br> <label for="age">Age</label></br>
+      <input type="number" id="age" placeholder="eg: 25" /> 
+      </br> <label for="weight">Weight</label></br>
+      <input type="number" id="weight" placeholder="eg: 70" />
+      </br> <label for="height">Height</label></br>
+      <input type="number" id="height" placeholder="eg: 175" />
+
+    </div><br></br>
+    <div class="option-group">
+    <input type="radio" id="male" name="gender" value="Male">
+    <label for="male">Male</label>
+
+    <input type="radio" id="female" name="gender" value="Female">
+    <label for="female">Female</label>
+
+  </div>
+  </br></br>
+  <div class="slider-container">
+    <label for="activity">Activity Level:</label>
+    <input type="range" id="activity" name="activity" min="1" max="5" value="3">
+    <div class="slider-labels">
+      <span>Low</span>
+      <span>Medium</span>
+      <span>High</span>
+    </div>
+  </div>
+  </br></br>
+  <div class="button-container">
+    <button type="button" id="calculate-btn">Calculate BMI</button>
+    <button type="button" id="reset-btn">Reset</button>
+  </div>
+  </br></br>
+  <div class="bmi-card" id="bmi-card" style="display: none;">
+    <div class="bmi-content">
+      <h3>BMI Result</h3>
+      <div class="bmi-value" id="bmi-value">--</div>
+      <div class="bmi-category" id="bmi-category">--</div>
+      <div class="bmi-details" id="bmi-details">--</div>
+    </div>
+  </div>
+  </body>
+</html>

@@ -1,0 +1,502 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BMI Results</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1 id="welcome">BMI Calculator Results</h1>
+    </br></br>
+
+    <div class="bmi-card" id="bmi-card">
+      <div class="bmi-content">
+        <h3>BMI Result</h3>
+        <div class="bmi-value" id="bmi-value">--</div>
+        <div class="bmi-category" id="bmi-category">--</div>
+        <div class="bmi-details" id="bmi-details">--</div>
+        <div class="user-info" id="user-info"></div>
+      </div>
+    </div>
+
+    <div class="button-container">
+      <button type="button" onclick="window.location.href='index.html'">Calculate Again</button>
+      <button type="button" onclick="window.print()">Print Results</button>
+      <button type="button" id="diet-btn" onclick="toggleDietSection()">📝 Track Diet</button>
+    </div>
+
+    <!-- Diet Tracking Section -->
+    <div class="diet-section" id="diet-section" style="display: none;">
+      <div class="diet-header">
+        <h2>🍽️ Daily Diet Tracker</h2>
+        <p>Track your meals and maintain a healthy lifestyle</p>
+      </div>
+
+      <div class="meal-tabs">
+        <button class="meal-tab active" data-meal="breakfast">🌅 Breakfast</button>
+        <button class="meal-tab" data-meal="lunch">☀️ Lunch</button>
+        <button class="meal-tab" data-meal="dinner">🌙 Dinner</button>
+        <button class="meal-tab" data-meal="snacks">🍿 Snacks</button>
+      </div>
+
+      <div class="diet-content">
+        <!-- Breakfast Tab -->
+        <div class="meal-content active" id="breakfast-content">
+          <div class="food-grid">
+            <div class="food-item" data-food="idli">
+              <div class="food-icon">🫓</div>
+              <div class="food-name">Idli</div>
+              <div class="food-calories">150 cal</div>
+              <div class="quantity-control">
+                <button class="qty-btn" onclick="adjustQuantity('idli', -1)">-</button>
+                <input type="number" class="qty-input" id="idli-qty" value="0" min="0" max="10">
+                <button class="qty-btn" onclick="adjustQuantity('idli', 1)">+</button>
+              </div>
+            </div>
+            <div class="food-item" data-food="dosa">
+              <div class="food-icon">🥞</div>
+              <div class="food-name">Dosa</div>
+              <div class="food-calories">168 cal</div>
+              <div class="quantity-control">
+                <button class="qty-btn" onclick="adjustQuantity('dosa', -1)">-</button>
+                <input type="number" class="qty-input" id="dosa-qty" value="0" min="0" max="10">
+                <button class="qty-btn" onclick="adjustQuantity('dosa', 1)">+</button>
+              </div>
+            </div>
+            <div class="food-item" data-food="pongal">
+              <div class="food-icon">🍚</div>
+              <div class="food-name">Ven Pongal</div>
+              <div class="food-calories">290 cal</div>
+              <div class="quantity-control">
+                <button class="qty-btn" onclick="adjustQuantity('pongal', -1)">-</button>
+                <input type="number" class="qty-input" id="pongal-qty" value="0" min="0" max="10">
+                <button class="qty-btn" onclick="adjustQuantity('pongal', 1)">+</button>
+              </div>
+            </div>
+            <div class="food-item" data-food="upma">
+              <div class="food-icon">🍲</div>
+              <div class="food-name">Upma</div>
+              <div class="food-calories">220 cal</div>
+              <div class="quantity-control">
+                <button class="qty-btn" onclick="adjustQuantity('upma', -1)">-</button>
+                <input type="number" class="qty-input" id="upma-qty" value="0" min="0" max="10">
+                <button class="qty-btn" onclick="adjustQuantity('upma', 1)">+</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Lunch Tab -->
+        <div class="meal-content" id="lunch-content">
+          <div class="food-grid">
+            <div class="food-item" data-food="rice">
+              <div class="food-icon">🍚</div>
+              <div class="food-name">Steamed Rice</div>
+              <div class="food-calories">260 cal</div>
+              <div class="quantity-control">
+                <button class="qty-btn" onclick="adjustQuantity('rice', -1)">-</button>
+                <input type="number" class="qty-input" id="rice-qty" value="0" min="0" max="10">
+                <button class="qty-btn" onclick="adjustQuantity('rice', 1)">+</button>
+              </div>
+            </div>
+            <div class="food-item" data-food="sambar_rice">
+              <div class="food-icon">🍛</div>
+              <div class="food-name">Sambar Rice</div>
+              <div class="food-calories">320 cal</div>
+              <div class="quantity-control">
+                <button class="qty-btn" onclick="adjustQuantity('sambar_rice', -1)">-</button>
+                <input type="number" class="qty-input" id="sambar_rice-qty" value="0" min="0" max="10">
+                <button class="qty-btn" onclick="adjustQuantity('sambar_rice', 1)">+</button>
+              </div>
+            </div>
+            <div class="food-item" data-food="rasam_rice">
+              <div class="food-icon">🍜</div>
+              <div class="food-name">Rasam Rice</div>
+              <div class="food-calories">280 cal</div>
+              <div class="quantity-control">
+                <button class="qty-btn" onclick="adjustQuantity('rasam_rice', -1)">-</button>
+                <input type="number" class="qty-input" id="rasam_rice-qty" value="0" min="0" max="10">
+                <button class="qty-btn" onclick="adjustQuantity('rasam_rice', 1)">+</button>
+              </div>
+            </div>
+            <div class="food-item" data-food="curd_rice">
+              <div class="food-icon">🍚</div>
+              <div class="food-name">Curd Rice</div>
+              <div class="food-calories">220 cal</div>
+              <div class="quantity-control">
+                <button class="qty-btn" onclick="adjustQuantity('curd_rice', -1)">-</button>
+                <input type="number" class="qty-input" id="curd_rice-qty" value="0" min="0" max="10">
+                <button class="qty-btn" onclick="adjustQuantity('curd_rice', 1)">+</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dinner Tab -->
+        <div class="meal-content" id="dinner-content">
+          <div class="food-grid">
+            <div class="food-item" data-food="dosa_dinner">
+              <div class="food-icon">🥞</div>
+              <div class="food-name">Dosa</div>
+              <div class="food-calories">168 cal</div>
+              <div class="quantity-control">
+                <button class="qty-btn" onclick="adjustQuantity('dosa_dinner', -1)">-</button>
+                <input type="number" class="qty-input" id="dosa_dinner-qty" value="0" min="0" max="10">
+                <button class="qty-btn" onclick="adjustQuantity('dosa_dinner', 1)">+</button>
+              </div>
+            </div>
+            <div class="food-item" data-food="rice_dinner">
+              <div class="food-icon">🍚</div>
+              <div class="food-name">Rice</div>
+              <div class="food-calories">260 cal</div>
+              <div class="quantity-control">
+                <button class="qty-btn" onclick="adjustQuantity('rice_dinner', -1)">-</button>
+                <input type="number" class="qty-input" id="rice_dinner-qty" value="0" min="0" max="10">
+                <button class="qty-btn" onclick="adjustQuantity('rice_dinner', 1)">+</button>
+              </div>
+            </div>
+            <div class="food-item" data-food="sambar_rice_dinner">
+              <div class="food-icon">🍛</div>
+              <div class="food-name">Sambar Rice</div>
+              <div class="food-calories">320 cal</div>
+              <div class="quantity-control">
+                <button class="qty-btn" onclick="adjustQuantity('sambar_rice_dinner', -1)">-</button>
+                <input type="number" class="qty-input" id="sambar_rice_dinner-qty" value="0" min="0" max="10">
+                <button class="qty-btn" onclick="adjustQuantity('sambar_rice_dinner', 1)">+</button>
+              </div>
+            </div>
+            <div class="food-item" data-food="rasam_rice_dinner">
+              <div class="food-icon">🍜</div>
+              <div class="food-name">Rasam Rice</div>
+              <div class="food-calories">280 cal</div>
+              <div class="quantity-control">
+                <button class="qty-btn" onclick="adjustQuantity('rasam_rice_dinner', -1)">-</button>
+                <input type="number" class="qty-input" id="rasam_rice_dinner-qty" value="0" min="0" max="10">
+                <button class="qty-btn" onclick="adjustQuantity('rasam_rice_dinner', 1)">+</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Snacks Tab -->
+        <div class="meal-content" id="snacks-content">
+          <div class="food-grid">
+            <div class="food-item" data-food="banana">
+              <div class="food-icon">🍌</div>
+              <div class="food-name">Banana</div>
+              <div class="food-calories">105 cal</div>
+              <div class="quantity-control">
+                <button class="qty-btn" onclick="adjustQuantity('banana', -1)">-</button>
+                <input type="number" class="qty-input" id="banana-qty" value="0" min="0" max="10">
+                <button class="qty-btn" onclick="adjustQuantity('banana', 1)">+</button>
+              </div>
+            </div>
+            <div class="food-item" data-food="apple">
+              <div class="food-icon">🍎</div>
+              <div class="food-name">Apple</div>
+              <div class="food-calories">95 cal</div>
+              <div class="quantity-control">
+                <button class="qty-btn" onclick="adjustQuantity('apple', -1)">-</button>
+                <input type="number" class="qty-input" id="apple-qty" value="0" min="0" max="10">
+                <button class="qty-btn" onclick="adjustQuantity('apple', 1)">+</button>
+              </div>
+            </div>
+            <div class="food-item" data-food="nuts">
+              <div class="food-icon">🥜</div>
+              <div class="food-name">Mixed Nuts</div>
+              <div class="food-calories">200 cal</div>
+              <div class="quantity-control">
+                <button class="qty-btn" onclick="adjustQuantity('nuts', -1)">-</button>
+                <input type="number" class="qty-input" id="nuts-qty" value="0" min="0" max="10">
+                <button class="qty-btn" onclick="adjustQuantity('nuts', 1)">+</button>
+              </div>
+            </div>
+            <div class="food-item" data-food="yogurt">
+              <div class="food-icon">🥛</div>
+              <div class="food-name">Yogurt</div>
+              <div class="food-calories">150 cal</div>
+              <div class="quantity-control">
+                <button class="qty-btn" onclick="adjustQuantity('yogurt', -1)">-</button>
+                <input type="number" class="qty-input" id="yogurt-qty" value="0" min="0" max="10">
+                <button class="qty-btn" onclick="adjustQuantity('yogurt', 1)">+</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Miscellaneous Calories Section -->
+      <div class="misc-section">
+        <h3>➕ Miscellaneous Calories</h3>
+        <div class="misc-grid">
+          <div class="misc-item">
+            <span class="misc-icon">☕</span>
+            <span class="misc-name">Coffee/Tea</span>
+            <input type="number" class="misc-input" id="coffee-cal" placeholder="0" min="0">
+            <span class="misc-unit">cal</span>
+          </div>
+          <div class="misc-item">
+            <span class="misc-icon">🍪</span>
+            <span class="misc-name">Cookies/Biscuits</span>
+            <input type="number" class="misc-input" id="cookies-cal" placeholder="0" min="0">
+            <span class="misc-unit">cal</span>
+          </div>
+          <div class="misc-item">
+            <span class="misc-icon">🍫</span>
+            <span class="misc-name">Chocolate</span>
+            <input type="number" class="misc-input" id="chocolate-cal" placeholder="0" min="0">
+            <span class="misc-unit">cal</span>
+          </div>
+          <div class="misc-item">
+            <span class="misc-icon">🥤</span>
+            <span class="misc-name">Soft Drinks</span>
+            <input type="number" class="misc-input" id="drinks-cal" placeholder="0" min="0">
+            <span class="misc-unit">cal</span>
+          </div>
+          <div class="misc-item">
+            <span class="misc-icon">🍿</span>
+            <span class="misc-name">Chips/Snacks</span>
+            <input type="number" class="misc-input" id="chips-cal" placeholder="0" min="0">
+            <span class="misc-unit">cal</span>
+          </div>
+          <div class="misc-item">
+            <span class="misc-icon">🍰</span>
+            <span class="misc-name">Desserts</span>
+            <input type="number" class="misc-input" id="desserts-cal" placeholder="0" min="0">
+            <span class="misc-unit">cal</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Daily Summary -->
+      <div class="daily-summary">
+        <h3>📊 Daily Calorie Summary</h3>
+        <div class="summary-grid">
+          <div class="summary-item">
+            <span class="summary-label">Food Calories:</span>
+            <span class="summary-value" id="food-calories">0</span>
+          </div>
+          <div class="summary-item">
+            <span class="summary-label">Misc Calories:</span>
+            <span class="summary-value" id="misc-calories">0</span>
+          </div>
+          <div class="summary-item total">
+            <span class="summary-label">Total Calories:</span>
+            <span class="summary-value" id="total-calories">0</span>
+          </div>
+        </div>
+        <div class="calorie-slider">
+          <label for="target-calories">Target Daily Calories:</label>
+          <input type="range" id="target-calories" min="1200" max="3000" value="2000" step="50">
+          <span class="slider-value" id="target-value">2000</span>
+          <span class="slider-unit">cal</span>
+        </div>
+        <div class="progress-bar">
+          <div class="progress-fill" id="progress-fill"></div>
+          <span class="progress-text" id="progress-text">0% of target</span>
+        </div>
+      </div>
+
+      <!-- Save Diet Button -->
+      <div class="save-section">
+        <button class="save-btn" onclick="saveDietData()">💾 Save Today's Diet</button>
+        <button class="save-btn" style="background: linear-gradient(135deg, #4CAF50, #8BC34A); margin-left: 10px;" onclick="goToExercises()">🏃 Get Exercise Plan</button>
+        <div class="save-status" id="save-status"></div>
+      </div>
+    </div>
+
+    <script>
+      function goToExercises() {
+        const totalCalories = document.getElementById('total-calories').textContent;
+        const ageElement = document.getElementById('age-display');
+        const age = ageElement ? ageElement.textContent : '30';
+        window.location.href = `exercises.html?calories=${totalCalories}&age=${age}`;
+      }
+
+      // Get BMI data from URL parameters
+      const urlParams = new URLSearchParams(window.location.search);
+      const bmi = urlParams.get('bmi');
+      const category = urlParams.get('category');
+      const details = urlParams.get('details');
+      const username = urlParams.get('username');
+      const age = urlParams.get('age');
+      const gender = urlParams.get('gender');
+      const units = urlParams.get('units');
+      const activity = urlParams.get('activity');
+
+      if (bmi && category && details) {
+        document.getElementById('bmi-value').textContent = bmi;
+        document.getElementById('bmi-category').textContent = category;
+        document.getElementById('bmi-details').textContent = details;
+
+        // Display user info if available
+        let userInfo = '';
+        if (username) userInfo += `<p><strong>Name:</strong> ${username}</p>`;
+        if (age) userInfo += `<p><strong>Age:</strong> <span id="age-display">${age}</span></p>`;
+        if (gender) userInfo += `<p><strong>Gender:</strong> ${gender}</p>`;
+        if (units) userInfo += `<p><strong>Units:</strong> ${units.charAt(0).toUpperCase() + units.slice(1)}</p>`;
+        if (activity) userInfo += `<p><strong>Activity Level:</strong> ${activity}/5</p>`;
+
+        document.getElementById('user-info').innerHTML = userInfo;
+      } else {
+        // No data provided, redirect back
+        window.location.href = 'index.html';
+      }
+
+      // Diet tracking functionality
+      let dietData = {
+        breakfast: {},
+        lunch: {},
+        dinner: {},
+        snacks: {},
+        miscellaneous: {}
+      };
+
+      // Food database (simplified from southIndianFoods.ts)
+      const foodDatabase = {
+        idli: { calories: 150, name: "Idli" },
+        dosa: { calories: 168, name: "Dosa" },
+        pongal: { calories: 290, name: "Ven Pongal" },
+        upma: { calories: 220, name: "Upma" },
+        rice: { calories: 260, name: "Steamed Rice" },
+        sambar_rice: { calories: 320, name: "Sambar Rice" },
+        rasam_rice: { calories: 280, name: "Rasam Rice" },
+        curd_rice: { calories: 220, name: "Curd Rice" },
+        dosa_dinner: { calories: 168, name: "Dosa" },
+        rice_dinner: { calories: 260, name: "Rice" },
+        sambar_rice_dinner: { calories: 320, name: "Sambar Rice" },
+        rasam_rice_dinner: { calories: 280, name: "Rasam Rice" },
+        banana: { calories: 105, name: "Banana" },
+        apple: { calories: 95, name: "Apple" },
+        nuts: { calories: 200, name: "Mixed Nuts" },
+        yogurt: { calories: 150, name: "Yogurt" }
+      };
+
+      function toggleDietSection() {
+        const section = document.getElementById('diet-section');
+        const btn = document.getElementById('diet-btn');
+
+        if (section.style.display === 'none') {
+          section.style.display = 'block';
+          btn.textContent = '📝 Hide Diet Tracker';
+          section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        } else {
+          section.style.display = 'none';
+          btn.textContent = '📝 Track Diet';
+        }
+      }
+
+      // Tab switching
+      document.querySelectorAll('.meal-tab').forEach(tab => {
+        tab.addEventListener('click', function() {
+          const mealType = this.dataset.meal;
+
+          // Update tab active state
+          document.querySelectorAll('.meal-tab').forEach(t => t.classList.remove('active'));
+          this.classList.add('active');
+
+          // Update content visibility
+          document.querySelectorAll('.meal-content').forEach(content => content.classList.remove('active'));
+          document.getElementById(mealType + '-content').classList.add('active');
+        });
+      });
+
+      function adjustQuantity(foodId, change) {
+        const input = document.getElementById(foodId + '-qty');
+        let currentValue = parseInt(input.value) || 0;
+        currentValue = Math.max(0, Math.min(10, currentValue + change));
+        input.value = currentValue;
+
+        // Update diet data
+        const currentMeal = document.querySelector('.meal-tab.active').dataset.meal;
+        dietData[currentMeal][foodId] = currentValue;
+
+        updateCalorieSummary();
+      }
+
+      // Update miscellaneous calories
+      document.querySelectorAll('.misc-input').forEach(input => {
+        input.addEventListener('input', function() {
+          const itemId = this.id.replace('-cal', '');
+          dietData.miscellaneous[itemId] = parseInt(this.value) || 0;
+          updateCalorieSummary();
+        });
+      });
+
+      // Target calories slider
+      document.getElementById('target-calories').addEventListener('input', function() {
+        document.getElementById('target-value').textContent = this.value;
+        updateCalorieSummary();
+      });
+
+      function updateCalorieSummary() {
+        let foodCalories = 0;
+
+        // Calculate food calories
+        Object.keys(dietData).forEach(meal => {
+          if (meal !== 'miscellaneous') {
+            Object.keys(dietData[meal]).forEach(food => {
+              const qty = dietData[meal][food] || 0;
+              foodCalories += (foodDatabase[food]?.calories || 0) * qty;
+            });
+          }
+        });
+
+        // Calculate misc calories
+        let miscCalories = 0;
+        Object.values(dietData.miscellaneous).forEach(cal => {
+          miscCalories += cal || 0;
+        });
+
+        const totalCalories = foodCalories + miscCalories;
+        const targetCalories = parseInt(document.getElementById('target-calories').value);
+
+        // Update display
+        document.getElementById('food-calories').textContent = foodCalories;
+        document.getElementById('misc-calories').textContent = miscCalories;
+        document.getElementById('total-calories').textContent = totalCalories;
+
+        // Update progress bar
+        const progressPercent = Math.min(100, (totalCalories / targetCalories) * 100);
+        document.getElementById('progress-fill').style.width = progressPercent + '%';
+        document.getElementById('progress-text').textContent = Math.round(progressPercent) + '% of target';
+
+        // Color coding
+        const progressBar = document.getElementById('progress-fill');
+        if (progressPercent < 70) {
+          progressBar.style.background = 'linear-gradient(90deg, #4CAF50, #8BC34A)';
+        } else if (progressPercent < 100) {
+          progressBar.style.background = 'linear-gradient(90deg, #FF9800, #FFC107)';
+        } else {
+          progressBar.style.background = 'linear-gradient(90deg, #f44336, #e91e63)';
+        }
+      }
+
+      function saveDietData() {
+        const saveStatus = document.getElementById('save-status');
+        const data = {
+          date: new Date().toISOString().split('T')[0],
+          bmi: document.getElementById('bmi-value').textContent,
+          diet: dietData,
+          totalCalories: document.getElementById('total-calories').textContent,
+          targetCalories: document.getElementById('target-calories').value
+        };
+
+        // Save to localStorage
+        const savedDiets = JSON.parse(localStorage.getItem('dietHistory') || '[]');
+        savedDiets.push(data);
+        localStorage.setItem('dietHistory', JSON.stringify(savedDiets));
+
+        // Show success message
+        saveStatus.textContent = '✅ Diet saved successfully!';
+        saveStatus.style.color = '#4CAF50';
+        saveStatus.style.opacity = '1';
+
+        setTimeout(() => {
+          saveStatus.style.opacity = '0';
+        }, 3000);
+      }
+    </script>
+  </body>
+</html>

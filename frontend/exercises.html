@@ -1,0 +1,510 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rejuvenation Exercises</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1 id="welcome">💪 Rejuvenation Exercises</h1>
+    </br></br>
+
+    <div class="exercise-hero">
+      <div class="hero-content">
+        <h2>Personalized Exercise Recommendations</h2>
+        <p>Based on your daily calorie intake, we've selected the best exercises to rejuvenate your body</p>
+        <div class="calorie-info">
+          <span class="info-label">Your Daily Calories:</span>
+          <span class="info-value" id="daily-calories">--</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Top Recommendations -->
+    <div class="recommendations-section">
+      <h2>🏆 Top Recommended Exercises</h2>
+      <div class="recommendations-grid" id="recommendations-grid">
+        <div class="loading">Loading personalized recommendations...</div>
+      </div>
+    </div>
+
+    <!-- All Exercises by Phase -->
+    <div class="phases-section">
+      <h2>🔄 All Exercises by Phase</h2>
+
+      <!-- Warm-Up Phase -->
+      <div class="phase-card">
+        <div class="phase-header" onclick="togglePhase('warmup')">
+          <h3>🌅 Warm-Up Phase</h3>
+          <span class="toggle-icon" id="warmup-icon">▼</span>
+        </div>
+        <div class="phase-exercises" id="warmup-exercises" style="display: none;"></div>
+      </div>
+
+      <!-- Main Phase -->
+      <div class="phase-card">
+        <div class="phase-header" onclick="togglePhase('main')">
+          <h3>⭐ Main Exercises</h3>
+          <span class="toggle-icon" id="main-icon">▼</span>
+        </div>
+        <div class="phase-exercises" id="main-exercises" style="display: none;"></div>
+      </div>
+
+      <!-- Cool-Down Phase -->
+      <div class="phase-card">
+        <div class="phase-header" onclick="togglePhase('cooldown')">
+          <h3>🌙 Cool-Down Phase</h3>
+          <span class="toggle-icon" id="cooldown-icon">▼</span>
+        </div>
+        <div class="phase-exercises" id="cooldown-exercises" style="display: none;"></div>
+      </div>
+    </div>
+
+    <!-- Personalized Workout Plan -->
+    <div class="workout-plan-section">
+      <h2>📋 Your Personalized Workout Plan</h2>
+      <div class="plan-builder">
+        <div class="plan-input">
+          <label for="duration-slider">Workout Duration:</label>
+          <input type="range" id="duration-slider" min="10" max="120" value="30" step="5">
+          <span class="duration-value" id="duration-value">30</span>
+          <span class="duration-unit">minutes</span>
+        </div>
+        <button class="generate-btn" onclick="generateWorkoutPlan()">🎯 Generate My Plan</button>
+      </div>
+      <div class="plan-result" id="plan-result" style="display: none;"></div>
+    </div>
+
+    <!-- Heart Rate Monitoring Section -->
+    <div class="heart-rate-section" id="heart-rate-section" style="display: none;">
+      <h2>❤️ Heart Rate Monitoring & Alerts</h2>
+      <div class="hr-zones-container">
+        <div class="hr-info-card">
+          <div class="info-header">Your Heart Rate Zones (by Age)</div>
+          <div class="zone-display" id="zone-display"></div>
+          <div class="zone-legend">
+            <div class="legend-item"><span class="legend-color" style="background: #4CAF50;"></span>Safe Zone (50-70%)</div>
+            <div class="legend-item"><span class="legend-color" style="background: #FFC107;"></span>Caution Zone (70-80%)</div>
+            <div class="legend-item"><span class="legend-color" style="background: #FF9800;"></span>Warning Zone (80-90%)</div>
+            <div class="legend-item"><span class="legend-color" style="background: #f44336;"></span>Critical Zone (90-100%)</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="alerts-container">
+        <h3>Exercise Heart Rate Alerts</h3>
+        <div id="alerts-list"></div>
+      </div>
+
+      <div class="hr-recommendation">
+        <h3>💡 Personalized Recommendation</h3>
+        <div id="hr-recommendation-text"></div>
+      </div>
+    </div>
+
+    <!-- Calorie Burn Progress -->
+    <div class="burn-progress-section">
+      <h2>🔥 Calorie Burn Potential</h2>
+      <div class="burn-comparison">
+        <div class="burn-item" id="burn-item-template" style="display: none;">
+          <div class="burn-icon"></div>
+          <div class="burn-name"></div>
+          <div class="burn-details">
+            <span class="burn-duration"></span> × <span class="burn-efficiency"></span> cal/min
+          </div>
+          <div class="burn-bar-container">
+            <div class="burn-bar">
+              <div class="burn-fill"></div>
+            </div>
+            <span class="burn-calories"></span>
+          </div>
+        </div>
+        <div id="burn-items-container"></div>
+      </div>
+    </div>
+
+    <!-- Back Button -->
+    <div class="footer-nav">
+      <button onclick="window.location.href='results.html'" class="back-btn">← Back to Results</button>
+      <button onclick="window.print()" class="print-btn">🖨️ Print Plan</button>
+    </div>
+
+    <script>
+      let exerciseData = null;
+      let heartRateData = null;
+      let totalCalories = 0;
+      let userAge = 0;
+
+      // Get data from URL parameters
+      const urlParams = new URLSearchParams(window.location.search);
+      totalCalories = parseInt(urlParams.get('calories')) || 2000;
+      userAge = parseInt(urlParams.get('age')) || 30;
+
+      document.getElementById('daily-calories').textContent = totalCalories + ' cal';
+
+      // Calculate heart rate zones
+      function calculateHeartRateZones(age) {
+        const maxHR = 220 - age;
+        return {
+          max_hr: maxHR,
+          threshold_70_percent: maxHR * 0.70,
+          threshold_80_percent: maxHR * 0.80,
+          threshold_90_percent: maxHR * 0.90,
+          zones: {
+            zone_1_recovery: [maxHR * 0.50, maxHR * 0.60],
+            zone_2_endurance: [maxHR * 0.60, maxHR * 0.70],
+            zone_3_tempo: [maxHR * 0.70, maxHR * 0.80],
+            zone_4_threshold: [maxHR * 0.80, maxHR * 0.90],
+            zone_5_maximum: [maxHR * 0.90, maxHR * 1.00]
+          }
+        };
+      }
+
+      // Display heart rate zones
+      function displayHeartRateZones() {
+        const zones = calculateHeartRateZones(userAge);
+        const display = document.getElementById('zone-display');
+
+        const html = `
+          <div class="zone-details">
+            <div class="zone-row">
+              <span class="zone-name">Max Heart Rate:</span>
+              <span class="zone-value">${Math.round(zones.max_hr)} bpm</span>
+            </div>
+            <div class="zone-row">
+              <span class="zone-name">70% Threshold:</span>
+              <span class="zone-value">${Math.round(zones.threshold_70_percent)} bpm</span>
+            </div>
+            <div class="zone-row">
+              <span class="zone-name">80% Threshold:</span>
+              <span class="zone-value">${Math.round(zones.threshold_80_percent)} bpm</span>
+            </div>
+            <div class="zone-row">
+              <span class="zone-name">90% Threshold:</span>
+              <span class="zone-value">${Math.round(zones.threshold_90_percent)} bpm</span>
+            </div>
+          </div>
+        `;
+
+        display.innerHTML = html;
+      }
+
+      // Generate exercise alerts based on heart rate
+      function generateExerciseAlerts() {
+        const zones = calculateHeartRateZones(userAge);
+        const alertsList = document.getElementById('alerts-list');
+        const threshold70 = zones.threshold_70_percent;
+
+        if (!exerciseData) return;
+
+        let alertsHTML = '';
+        let criticalCount = 0;
+        let warningCount = 0;
+        let cautionCount = 0;
+
+        Object.values(exerciseData.all_exercises).forEach(phase => {
+          phase.forEach(exercise => {
+            const hr = exercise.heartrate;
+            let alertClass = 'alert-safe';
+            let alertIcon = '✅';
+            let alertText = 'SAFE';
+
+            if (hr >= zones.threshold_90_percent) {
+              alertClass = 'alert-critical';
+              alertIcon = '🚨';
+              alertText = 'CRITICAL';
+              criticalCount++;
+            } else if (hr >= zones.threshold_80_percent) {
+              alertClass = 'alert-warning';
+              alertIcon = '⚠️';
+              alertText = 'WARNING';
+              warningCount++;
+            } else if (hr >= threshold70) {
+              alertClass = 'alert-caution';
+              alertIcon = '⏰';
+              alertText = 'CAUTION';
+              cautionCount++;
+            }
+
+            alertsHTML += `
+              <div class="alert-item ${alertClass}">
+                <div class="alert-header">
+                  <span class="alert-icon">${alertIcon}</span>
+                  <span class="alert-exercise">${exercise.workout}</span>
+                  <span class="alert-status">${alertText}</span>
+                </div>
+                <div class="alert-details">
+                  <span>❤️ HR: ${hr} bpm</span>
+                  <span>⏱️ Duration: ${exercise.duration} min</span>
+                  <span>🔥 Calories: ${exercise.calories_burnt}</span>
+                </div>
+                <div class="alert-message">
+                  ${hr >= zones.threshold_90_percent ? `Your heart rate will exceed 90% of max HR. Consult a healthcare provider.` : 
+                    hr >= zones.threshold_80_percent ? `High intensity exercise. Monitor closely.` :
+                    hr >= threshold70 ? `Moderate intensity. Suitable for most fitness levels.` :
+                    `Low intensity. Great for warm-up or cool-down.`}
+                </div>
+              </div>
+            `;
+          });
+        });
+
+        alertsList.innerHTML = alertsHTML;
+
+        // Generate recommendation
+        const recommendationText = document.getElementById('hr-recommendation-text');
+        let recommendation = '';
+
+        if (criticalCount > 0) {
+          recommendation = `<p>⚠️ <strong>ALERT:</strong> There are ${criticalCount} exercise(s) that may exceed your safe heart rate limit (${Math.round(zones.threshold_90_percent)} bpm). We recommend choosing lower-intensity alternatives.</p>`;
+        } else if (warningCount > 0) {
+          recommendation = `<p>📌 <strong>CAUTION:</strong> ${warningCount} exercise(s) are in the warning zone (${Math.round(zones.threshold_80_percent)}-${Math.round(zones.threshold_90_percent)} bpm). These are safe but require monitoring.</p>`;
+        } else if (cautionCount > 0) {
+          recommendation = `<p>✓ <strong>GOOD:</strong> Most exercises are at a reasonable intensity for your age. ${cautionCount} exercise(s) are in the caution zone but are generally safe.</p>`;
+        } else {
+          recommendation = `<p>✅ <strong>EXCELLENT:</strong> All exercises are within safe heart rate zones for your age. You have a good range of options!</p>`;
+        }
+
+        recommendationText.innerHTML = recommendation;
+      }
+
+      // Load exercise data
+      async function loadExerciseData() {
+        try {
+          const response = await fetch('exercise_data.json');
+          exerciseData = await response.json();
+          displayRecommendations();
+          displayAllExercises();
+          displayBurnComparison();
+          
+          // Display heart rate monitoring
+          displayHeartRateZones();
+          generateExerciseAlerts();
+          document.getElementById('heart-rate-section').style.display = 'block';
+        } catch (error) {
+          console.error('Error loading exercise data:', error);
+          document.getElementById('recommendations-grid').innerHTML = '<p style="color: red;">Failed to load exercise data</p>';
+        }
+      }
+
+      function displayRecommendations() {
+        // Find the closest calorie level
+        const calorieKeys = Object.keys(exerciseData.recommendations).map(Number).sort((a, b) => a - b);
+        let closestCalorie = calorieKeys[0];
+        for (let cal of calorieKeys) {
+          if (Math.abs(cal - totalCalories) < Math.abs(closestCalorie - totalCalories)) {
+            closestCalorie = cal;
+          }
+        }
+
+        const recommendations = exerciseData.recommendations[closestCalorie];
+        const grid = document.getElementById('recommendations-grid');
+        grid.innerHTML = '';
+
+        recommendations.slice(0, 4).forEach((exercise, index) => {
+          const card = document.createElement('div');
+          card.className = 'exercise-card';
+          card.style.animationDelay = (index * 0.1) + 's';
+
+          const phaseEmoji = exercise.phase === 'Warm-Up' ? '🌅' : 
+                            exercise.phase === 'Main' ? '⭐' : '🌙';
+
+          card.innerHTML = `
+            <div class="exercise-rank">#${index + 1}</div>
+            <div class="exercise-phase">${phaseEmoji} ${exercise.phase}</div>
+            <div class="exercise-name">${exercise.workout}</div>
+            <div class="exercise-stats">
+              <div class="stat">
+                <span class="stat-label">⏱️ Duration</span>
+                <span class="stat-value">${exercise.duration} min</span>
+              </div>
+              <div class="stat">
+                <span class="stat-label">❤️ Heartrate</span>
+                <span class="stat-value">${exercise.heartrate} bpm</span>
+              </div>
+              <div class="stat">
+                <span class="stat-label">🔥 Calories</span>
+                <span class="stat-value">${exercise.calories_burnt}</span>
+              </div>
+              <div class="stat">
+                <span class="stat-label">⚡ Efficiency</span>
+                <span class="stat-value">${exercise.efficiency.toFixed(2)}/min</span>
+              </div>
+            </div>
+            <button class="add-btn" onclick="addToPlaylist('${exercise.workout}', ${exercise.calories_burnt}, ${exercise.duration})">➕ Add to Plan</button>
+          `;
+
+          grid.appendChild(card);
+        });
+      }
+
+      function displayAllExercises() {
+        const phases = ['Warm-Up', 'Main', 'Cool-Down'];
+        const phaseIds = ['warmup', 'main', 'cooldown'];
+
+        phases.forEach((phase, index) => {
+          const exercises = exerciseData.all_exercises[phase];
+          const container = document.getElementById(phaseIds[index] + '-exercises');
+          container.innerHTML = '';
+
+          exercises.forEach((exercise) => {
+            const item = document.createElement('div');
+            item.className = 'exercise-item';
+
+            item.innerHTML = `
+              <div class="item-header">
+                <h4>${exercise.workout}</h4>
+                <span class="item-badge">${exercise.calories_burnt} cal</span>
+              </div>
+              <div class="item-details">
+                <span>⏱️ ${exercise.duration} min</span>
+                <span>❤️ ${exercise.heartrate} bpm</span>
+                <span>⚡ ${exercise.efficiency.toFixed(2)} cal/min</span>
+              </div>
+              <button class="mini-btn" onclick="addToPlaylist('${exercise.workout}', ${exercise.calories_burnt}, ${exercise.duration})">Add</button>
+            `;
+
+            container.appendChild(item);
+          });
+        });
+      }
+
+      function displayBurnComparison() {
+        const container = document.getElementById('burn-items-container');
+        container.innerHTML = '';
+        const allExercises = [];
+
+        Object.values(exerciseData.all_exercises).forEach(phase => {
+          allExercises.push(...phase);
+        });
+
+        // Sort by calories burnt
+        allExercises.sort((a, b) => b.calories_burnt - a.calories_burnt);
+
+        allExercises.slice(0, 6).forEach((exercise, index) => {
+          const item = document.createElement('div');
+          item.className = 'burn-item';
+          item.style.animationDelay = (index * 0.05) + 's';
+
+          const maxCalories = Math.max(...allExercises.map(e => e.calories_burnt));
+          const percentage = (exercise.calories_burnt / maxCalories) * 100;
+
+          item.innerHTML = `
+            <div class="burn-icon" style="font-size: 24px;">🔥</div>
+            <div class="burn-name">${exercise.workout}</div>
+            <div class="burn-details">
+              ${exercise.duration} min × ${exercise.efficiency.toFixed(2)} cal/min
+            </div>
+            <div class="burn-bar-container">
+              <div class="burn-bar">
+                <div class="burn-fill" style="width: ${percentage}%"></div>
+              </div>
+              <span class="burn-calories">${exercise.calories_burnt} cal</span>
+            </div>
+          `;
+
+          container.appendChild(item);
+        });
+      }
+
+      function togglePhase(phase) {
+        const container = document.getElementById(phase + '-exercises');
+        const icon = document.getElementById(phase + '-icon');
+
+        if (container.style.display === 'none') {
+          container.style.display = 'block';
+          icon.style.transform = 'rotate(180deg)';
+        } else {
+          container.style.display = 'none';
+          icon.style.transform = 'rotate(0deg)';
+        }
+      }
+
+      let workoutPlaylist = [];
+
+      function addToPlaylist(name, calories, duration) {
+        workoutPlaylist.push({ name, calories, duration });
+        alert(`✅ ${name} added to your plan!`);
+      }
+
+      document.getElementById('duration-slider').addEventListener('input', function() {
+        document.getElementById('duration-value').textContent = this.value;
+      });
+
+      function generateWorkoutPlan() {
+        if (workoutPlaylist.length === 0) {
+          alert('Please add exercises to your playlist first!');
+          return;
+        }
+
+        const targetDuration = parseInt(document.getElementById('duration-slider').value);
+        let currentDuration = 0;
+        let totalCalories = 0;
+        let plan = [];
+
+        // Create a balanced plan
+        for (let exercise of workoutPlaylist) {
+          if (currentDuration + exercise.duration <= targetDuration) {
+            plan.push(exercise);
+            currentDuration += exercise.duration;
+            totalCalories += exercise.calories;
+          }
+        }
+
+        if (plan.length === 0) {
+          alert('Selected exercises are too long for the target duration!');
+          return;
+        }
+
+        // Display plan
+        const result = document.getElementById('plan-result');
+        result.style.display = 'block';
+
+        let html = `
+          <div class="plan-card">
+            <h3>Your Workout Plan</h3>
+            <div class="plan-details">
+              <div class="plan-stat">
+                <span class="label">Total Duration:</span>
+                <span class="value">${currentDuration} minutes</span>
+              </div>
+              <div class="plan-stat">
+                <span class="label">Total Calories Burnt:</span>
+                <span class="value">${totalCalories} calories</span>
+              </div>
+            </div>
+            <div class="plan-exercises">
+              <h4>Exercises:</h4>
+        `;
+
+        plan.forEach((exercise, index) => {
+          html += `
+            <div class="plan-item">
+              <span class="step">${index + 1}</span>
+              <div class="exercise-details">
+                <div class="exercise-name">${exercise.name}</div>
+                <div class="exercise-meta">${exercise.duration} min | ${exercise.calories} cal</div>
+              </div>
+            </div>
+          `;
+        });
+
+        html += `
+            </div>
+            <div class="plan-summary">
+              <p>This workout will help you burn approximately <strong>${totalCalories} calories</strong>!</p>
+              <p style="font-size: 14px; opacity: 0.8;">Tip: Perform this routine 3-4 times a week for best results.</p>
+            </div>
+          </div>
+        `;
+
+        result.innerHTML = html;
+        result.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+
+      // Load data on page load
+      loadExerciseData();
+    </script>
+  </body>
+</html>

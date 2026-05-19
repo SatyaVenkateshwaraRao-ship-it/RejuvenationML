@@ -1,0 +1,18 @@
+Phase,Workout,Duration(minutes),Avg Heartrate,CaloriesBurnt
+Warm-Up,Neck Stretch,3,70,10
+Warm-Up,Shoulder Rolls,3,72,12
+Warm-Up,Side Stretch,4,74,15
+Warm-Up,Standing Forward Bend,5,78,20
+Main,Cat-Cow Stretch,5,78,18
+Main,Seated Spinal Twist,5,76,16
+Main,Butterfly Stretch,6,78,22
+Main,Hamstring Stretch,7,82,26
+Main,Quadriceps Stretch,6,80,24
+Main,Hip Flexor Stretch,7,82,28
+Main,Downward Dog,8,85,35
+Main,Cobra Stretch,6,78,22
+Main,Chest Opener Stretch,6,78,22
+Cool-Down,Child?s Pose,5,72,15
+Cool-Down,Full Body Stretch Routine,10,82,40
+Cool-Down,Gentle Yoga Flow,15,88,65
+Cool-Down,Tai Chi (Flexibility Focus),20,88,80
