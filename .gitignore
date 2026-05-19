@@ -1,0 +1,24 @@
+# Python cache files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environment directories
+.env
+.venv
+venv/
+
+# IDE files
+.vscode/
+.idea/
+
+# MacOS
+.DS_Store
+
+# Logs
+*.log
+
+# Python distribution/build
+build/
+dist/
+*.egg-info/
